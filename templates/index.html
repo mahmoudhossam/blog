@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for post in all_posts() %}
+
+        <h3>{{ title }}</h3>
+        <p>{{ body }}</p>
+
+    {% endfor %}
+
+{% endblock %}
