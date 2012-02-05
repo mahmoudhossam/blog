@@ -8,7 +8,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html') 
+    return render_template('index.html', posts=all_posts()) 
 
 @app.route('/post/<int:id>')
 def get_post(id):
