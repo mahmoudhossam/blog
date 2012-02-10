@@ -18,9 +18,8 @@ def get_post(id):
 @app.route('/new', methods=['POST', 'GET'])
 def post_new():
     if request.method == 'POST':
-        #return 'Title: %s' % request.form['title'] + '\n' + \
-        #'Body: %s' % request.form['body']
-        return redirect(url_for('index'))
+        return 'Title: %s' % request.form['title'] + '\n' + \
+        'Body: %s' % request.form['body']
     else:
         return render_template('new.html')
 
