@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{title}}</title>
+        <title>Programming Beans</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css')}}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
+        <link rel=icon href="{{ url_for('static', filename='favicon.ico') }}">
     </head>
 
     <body>
-        <h1>{{header}}</h1>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span4">
+                    <!-- sidebar --!>
+                </div>
 
-        <div>
-            {% block content %}
+                <div class="span8">
+                    <div class="navbar navbar-fixed-top">
+                        <div class="brand" id="title">Programming Beans</div>
+                    </div>
+                        <div class="content">
+                            {% block content %}
 
-            {% endblock %}
+                            {% endblock %}
+                        </div>  
+                    </div>
+                </div>
+            </div>
         </div>
-
     </body>
 </html>

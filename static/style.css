@@ -1,0 +1,16 @@
+.content {
+    margin: 40px;
+    padding-top: 40px;
+}
+
+.navbar {
+    background-color: #2A2A2A;
+}
+
+#title {
+    color: white;
+}
+
+#submit-button {
+    margin-left: 40px;
+}
