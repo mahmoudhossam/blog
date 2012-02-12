@@ -28,11 +28,12 @@ def all_posts():
 ####################################################################
 @app.route('/')
 def index():
-    return render_template('index.html', posts=all_posts()) 
+    return render_template('index.html', posts=all_posts())
 
 @app.route('/post/<int:id>')
 def get_post(id):
-    return render_template('post.html')
+    post = Post.objects(ID=id).first()
+    return render_template('post.html', post=post)
 
 @app.route('/new', methods=['POST', 'GET'])
 def post_new():
@@ -66,5 +67,5 @@ def validate(user, password):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     # Disable this when deploying
-    app.debug = True
+    #app.debug = True
     app.run(host='0.0.0.0', port=port)
