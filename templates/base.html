@@ -11,7 +11,11 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span4">
-                    <!-- sidebar --!>
+                    <ul id="navigation">
+                        <a href="{{ url_for('index') }}"><li>Home</li></a>
+                        <a href="{{ url_for('post_new') }}"><li>New post</li></a>
+                        <a href="{{ url_for('login') }}"><li>Login</li></a>
+                    </ul>
                 </div>
 
                 <div class="span8">

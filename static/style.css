@@ -1,6 +1,5 @@
-.content {
-    margin: 40px;
-    padding-top: 40px;
+#navigation {
+    padding-top: 20px;
 }
 
 .navbar {
@@ -17,4 +16,8 @@
 
 a {
     color: blue;
+}
+
+.row-fluid {
+    padding-top: 50px;
 }
