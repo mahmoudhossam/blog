@@ -1,5 +1,0 @@
-HOST='mongodb://mhh91:1388813@ds029807.mongolab.com/heroku_app2764184'
-PORT=29807
-DBNAME='heroku_app2764184'
-USERNAME='mhh91'
-PASSWORD='1388813'
