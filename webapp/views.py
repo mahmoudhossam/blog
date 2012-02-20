@@ -1,5 +1,5 @@
 from webapp import app
-from flask import Flask, request, redirect, url_for, render_template
+from flask import Flask, request, redirect, url_for, render_template, abort
 from models import Post
 from util import *
 
@@ -7,9 +7,11 @@ from util import *
 def index():
     return render_template('index.html', posts=all_posts())
 
-@app.route('/post/<int:id>')
-def get_post(id):
-    post = Post.objects(ID=id).first()
+@app.route('/post/<int:year>/<int:month>/<int:day>/<slug>')
+def get_post(year, month, day, slug):
+    post = get_post(year, month, day, slug)
+    if(post == None):
+        abort(404)
     return render_template('post.html', post=post)
 
 @app.route('/new', methods=['POST', 'GET'])
