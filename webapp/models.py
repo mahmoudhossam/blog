@@ -1,9 +1,11 @@
 from mongoengine import *
-from datetime import datetime
 
 class Post(Document):
     title = StringField(required=True)
     content = StringField(required=True)
-    published_at = datetime.utcnow()
-    ID = IntField(min_value=1)
+    published_at = DateTimeField(required=True)
+    slug = StringField(required=True) 
 
+class User(Document):
+    username = StringField(required=True, min_length=4)
+    hashed_pw = StringField(required=True)
