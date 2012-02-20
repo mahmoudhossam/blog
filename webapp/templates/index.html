@@ -3,10 +3,14 @@
 {% block content %}
 
     {% for post in posts %}
-
-    <h3><a href="{{url_for('get_post', id=post.ID)}}">{{ post.title }}</a></h3>
+    <h3>
+        <a href="{{ url_for('get_post', year = post.published_at.year, month=post.published_at.month, day=post.published_at.day, slug=post.slug) }}">
+            {{ post.title }}
+        </a>
+    </h3>
         <p>{{ post.content }}</p>
-
+    {% else: %}
+            There's nothing here, move along.
     {% endfor %}
 
 {% endblock %}
