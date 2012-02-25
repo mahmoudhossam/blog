@@ -24,6 +24,6 @@ def all_posts():
 
 def get_post(year, month, day, slug):
     date = datetime(year, month, day)
-    post = Posts.objects(published_at=date, slug=slug)
+    post = Post.objects(published_at=date, slug=slug)
     return post.first()
 
