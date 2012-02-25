@@ -1,5 +1,5 @@
 import bcrypt
-from models import Post, User
+from models import *
 from slugify import slugify
 from datetime import datetime
 
