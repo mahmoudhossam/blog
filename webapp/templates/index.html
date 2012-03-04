@@ -5,7 +5,7 @@
     {% for post in posts %}
 
     <h3>
-        <a href="{{ url_for('get_post', year = post.published_at.year, month=post.published_at.month, day=post.published_at.day, slug=post.slug) }}">
+        <a href="{{ url_for('get_post', year = post.date.year, month=post.date.month, day=post.date.day, slug=post.slug) }}">
             {{ post.title }}
         </a>
     </h3>

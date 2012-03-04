@@ -3,7 +3,8 @@ from mongoengine import *
 class Post(Document):
     title = StringField(required=True)
     content = StringField(required=True)
-    published_at = DateTimeField(required=True)
+    date = DateTimeField(required=True)
+    #time = StringField(required=True)
     slug = StringField(required=True) 
 
 class User(Document):
