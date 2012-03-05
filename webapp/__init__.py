@@ -1,5 +1,5 @@
 from flask import Flask
-from config import login 
+from params import login 
 from mongoengine import connect
 
 app = Flask(__name__)
