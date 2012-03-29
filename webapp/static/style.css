@@ -8,6 +8,9 @@
 
 #title {
     color: white;
+    padding-left: 1.5em;
+    font-family: 'PT Mono', sans-serif;
+     
 }
 
 #submit-button {
