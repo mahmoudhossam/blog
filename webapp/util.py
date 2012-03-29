@@ -21,10 +21,22 @@ def create_post(title, content, date=date.today()):
 def all_posts():
     return Post.objects
 
-def get_post(year, month, day, slug):
-    date = date(year, month, day)
-    posts = Post.objects(date=date)
-    for i in posts:
-        if i.slug == slug:
-            return i
+def parse_id(identifier):
+    parts = identifier.split('/')
+    if len(parts) ==  4:
+        year = int(parts[0])
+        month = int(parts[1])
+        day = int(parts[2])
+        slug = parts[3]
+        return year, month, day, slug
+    return None
 
+def get_post(ID):
+    parsed = parse_id(ID)
+    if parsed:
+        year, month, day, s = parse_id(ID)
+        d = date(year, month, day)
+        posts = Post.objects(date=d, slug=s)
+        return posts.first()
+    else:
+        return None
