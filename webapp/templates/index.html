@@ -3,9 +3,12 @@
 {% block content %}
 
     {% for post in posts %}
-
+    {% set year = post.date.year %}
+    {% set month = post.date.month %}
+    {% set day = post.date.day %}
+    {% set p = year ~ '/' ~ month ~ '/' ~ day ~ '/' ~ post.slug %}
     <h3>
-        <a href="{{ url_for('get_post', year = post.date.year, month=post.date.month, day=post.date.day, slug=post.slug) }}">
+        <a href="{{ url_for('render_post', ID=p) }}">
             {{ post.title }}
         </a>
     </h3>

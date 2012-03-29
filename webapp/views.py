@@ -7,12 +7,13 @@ from util import *
 def index():
     return render_template('index.html', posts=all_posts())
 
-@app.route('/post/<int:year>/<int:month>/<int:day>/<slug>')
-def get_post(year, month, day, slug):
-    post = get_post(year, month, day, slug)
-    if(post == None):
+@app.route('/post/<path:ID>/')
+def render_post(ID):
+    post = get_post(ID)
+    if post:
+        return render_template('post.html', post=post)
+    else:
         abort(404)
-    return render_template('post.html', post=post)
 
 @app.route('/new', methods=['POST', 'GET'])
 def post_new():
