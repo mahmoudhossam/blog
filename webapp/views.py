@@ -37,3 +37,14 @@ def login():
     else:
         return render_template('login.html')
 
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        password = request.form['password']
+        user = request.form['user']
+        email = request.form['email']
+        if user and password and email:
+            create_user(user, password, email)
+        else:
+            #This is temporary, until I figure something else out.
+            abort(404)

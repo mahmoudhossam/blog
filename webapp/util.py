@@ -3,20 +3,24 @@ from models import Post, User
 from slugify import slugify
 from datetime import datetime, date
 
-def validate(user, password):
-    hashed = '$2a$12$leF7cVimpflh2P97U4WV8ugjE9HE5fwyeb5shGXjVvFuJoxSj08cC'
-    return bcrypt.hashpw(password, hashed) == hashed and user == 'mhh91'
+def validate(password, user):
+    hashed = user.hashed_pw
+    return bcrypt.hashpw(password, hashed) == hashed
 
 def login(user, password):
-    results = Post.objects(username=user)
-    if len(results) != 0:
-        user = results.first()
-        return bcrypt.hashpw(password, user.hashed_pw) == user.hashed_pw
+    result = User.objects(username=user)
+    if result:
+        usr = result.first()
+        return validate(password, usr.username)
 
 def create_post(title, content, date=date.today()):
     slug = slugify(title)
     post = Post(title=title, content=content, date=date, slug=slug)
     post.save()
+
+def create_user(user, password, email):
+    usr = User(username=user, password=password, email=email)
+    User.save()
 
 def all_posts():
     return Post.objects
@@ -38,5 +42,3 @@ def get_post(ID):
         d = date(year, month, day)
         posts = Post.objects(date=d, slug=s)
         return posts.first()
-    else:
-        return None

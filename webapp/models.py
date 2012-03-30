@@ -10,3 +10,4 @@ class Post(Document):
 class User(Document):
     username = StringField(required=True, min_length=4)
     hashed_pw = StringField(required=True)
+    email = StringField(required=True)
