@@ -21,7 +21,7 @@ def post_new():
         title = request.form['title']
         content = request.form['body']
         create_post(title, content)
-        return "Post created."
+        return redirect(url_for('index'))
     else:
         return render_template('new.html')
 
@@ -48,3 +48,5 @@ def register():
         else:
             #This is temporary, until I figure something else out.
             abort(404)
+    else:
+        return render_template('register.html')
