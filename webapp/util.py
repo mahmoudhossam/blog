@@ -19,8 +19,9 @@ def create_post(title, content, date=date.today()):
     post.save()
 
 def create_user(user, password, email):
-    usr = User(username=user, password=password, email=email)
-    User.save()
+    hashed = bcrypt.hashpw(password, bcrypt.gensalt());
+    usr = User(username=user, hashed_pw=hashed, email=email)
+    usr.save()
 
 def all_posts():
     return Post.objects

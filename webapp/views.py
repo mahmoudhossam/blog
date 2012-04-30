@@ -41,10 +41,11 @@ def login():
 def register():
     if request.method == 'POST':
         password = request.form['password']
-        user = request.form['user']
+        user = request.form['username']
         email = request.form['email']
         if user and password and email:
             create_user(user, password, email)
+            return redirect(url_for('index'))
         else:
             #This is temporary, until I figure something else out.
             abort(404)
